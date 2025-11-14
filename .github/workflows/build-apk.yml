@@ -39,8 +39,12 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
         with:
-          api-level: 33
-          build-tools: '33.0.2'
+          api-level: 35
+          build-tools: '35.0.1'
+
+      - name: Accept Android SDK licenses
+        run: |
+          yes | sdkmanager --licenses || true
 
       - name: Build debug APK (Gradle)
         working-directory: android
